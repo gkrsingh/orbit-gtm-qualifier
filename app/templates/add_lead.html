@@ -3,6 +3,10 @@
 {% block content %}
 <h2>Add Lead</h2>
 
+{% if error %}
+<p class="form-error">{{ error }}</p>
+{% endif %}
+
 <form method="post" action="/leads/add" class="lead-form">
     <label for="company_name">Company Name</label>
     <input type="text" id="company_name" name="company_name" required>

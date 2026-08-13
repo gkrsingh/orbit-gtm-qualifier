@@ -135,6 +135,16 @@ h2 {
     color: var(--muted);
 }
 
+.form-error {
+    max-width: 480px;
+    background: #fdecea;
+    border: 1px solid var(--low);
+    color: var(--low);
+    padding: 0.65rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
 .lead-form {
     display: flex;
     flex-direction: column;
