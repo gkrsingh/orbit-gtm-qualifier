@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip index *)",
+      "Bash(python -m venv .venv)",
+      "Bash(.venv/Scripts/pip install *)",
+      "Bash(cat /tmp/uvicorn_out.log)",
+      "Bash(.venv/Scripts/python -c \"import starlette; print\\(starlette.__version__\\)\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' -L -X POST http://127.0.0.1:8123/leads/add -d 'company_name=Acme Corp' -d 'contact_name=Jane Doe' -d 'job_title=VP of Sales' -d company_size=1200 -d industry=SaaS -d website=https://acme.example -d intent_signal=strong)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' -L -X POST http://127.0.0.1:8123/leads/add -d 'company_name=Small Shop' -d 'contact_name=John Roe' -d 'job_title=Sales Associate' -d company_size=20 -d industry=Retail -d website= -d intent_signal=weak)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' -L -X POST http://127.0.0.1:8123/leads/add -d 'company_name=Mid Co' -d 'contact_name=Sam Lee' -d job_title=CFO -d company_size=50 -d industry=Retail -d website= -d intent_signal=medium)",
+      "Bash(curl -s -i -X POST http://127.0.0.1:8123/leads/add -d 'company_name=Acme Corp' -d 'contact_name=Jane Doe' -d 'job_title=VP of Sales' -d company_size=1200 -d industry=SaaS -d website=https://acme.example -d intent_signal=strong)",
+      "Bash(curl --version)",
+      "Bash(curl -s -X POST http://127.0.0.1:8123/leads/add -d 'company_name=Beta Co' -d 'contact_name=Roe Low' -d 'job_title=Sales Associate' -d company_size=20 -d industry=Retail -d website= -d intent_signal=weak -o /dev/null -w 'POST status: %{http_code}\\\\n')",
+      "Bash(curl -s -X POST http://127.0.0.1:8123/leads/add -d 'company_name=Mid Co' -d 'contact_name=Sam Lee' -d job_title=CFO -d company_size=50 -d industry=Retail -d website= -d intent_signal=medium -o /dev/null -w 'POST status: %{http_code}\\\\n')",
+      "Bash(.venv/Scripts/python -c ' *)",
+      "Bash(python3 -c ' *)",
+      "Bash(powershell -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''python.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*uvicorn*'\\\\'' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }')",
+      "Bash(rm -f data/orbit.db)"
+    ]
+  }
+}

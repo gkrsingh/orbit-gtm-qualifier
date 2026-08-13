@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Orbit GTM Lead Qualifier{% endblock %}
+{% block content %}
+<h2>Dashboard</h2>
+
+<div class="stats">
+    <div class="stat-card">
+        <span class="stat-value">{{ total }}</span>
+        <span class="stat-label">Total Leads</span>
+    </div>
+    <div class="stat-card stat-high">
+        <span class="stat-value">{{ high }}</span>
+        <span class="stat-label">High Intent</span>
+    </div>
+    <div class="stat-card stat-medium">
+        <span class="stat-value">{{ medium }}</span>
+        <span class="stat-label">Medium Intent</span>
+    </div>
+    <div class="stat-card stat-low">
+        <span class="stat-value">{{ low }}</span>
+        <span class="stat-label">Low Intent</span>
+    </div>
+</div>
+
+{% if leads %}
+<div class="table-wrap">
+<table class="leads-table">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Title</th>
+            <th>Size</th>
+            <th>Industry</th>
+            <th>Intent</th>
+            <th>Score</th>
+            <th>Classification</th>
+            <th>Recommended Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lead in leads %}
+        <tr>
+            <td>{{ lead.company_name }}</td>
+            <td>{{ lead.contact_name }}</td>
+            <td>{{ lead.job_title }}</td>
+            <td>{{ lead.company_size }}</td>
+            <td>{{ lead.industry }}</td>
+            <td>{{ lead.intent_signal }}</td>
+            <td>{{ lead.score }}</td>
+            <td><span class="badge badge-{{ lead.classification|lower }}">{{ lead.classification }}</span></td>
+            <td>{{ lead.recommended_action }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="empty-state">No leads yet. <a href="/leads/add">Add your first lead</a>.</p>
+{% endif %}
+{% endblock %}

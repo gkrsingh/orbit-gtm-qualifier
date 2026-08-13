@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Add Lead - Orbit GTM Lead Qualifier{% endblock %}
+{% block content %}
+<h2>Add Lead</h2>
+
+<form method="post" action="/leads/add" class="lead-form">
+    <label for="company_name">Company Name</label>
+    <input type="text" id="company_name" name="company_name" required>
+
+    <label for="contact_name">Contact Name</label>
+    <input type="text" id="contact_name" name="contact_name" required>
+
+    <label for="job_title">Job Title</label>
+    <input type="text" id="job_title" name="job_title" required>
+
+    <label for="company_size">Company Size</label>
+    <input type="number" id="company_size" name="company_size" min="1" required>
+
+    <label for="industry">Industry</label>
+    <select id="industry" name="industry" required>
+        {% for option in industries %}
+        <option value="{{ option }}">{{ option }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="website">Website</label>
+    <input type="url" id="website" name="website" placeholder="https://example.com">
+
+    <label for="intent_signal">Intent Signal</label>
+    <select id="intent_signal" name="intent_signal" required>
+        {% for option in intent_signals %}
+        <option value="{{ option }}">{{ option|capitalize }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Add Lead</button>
+</form>
+{% endblock %}
